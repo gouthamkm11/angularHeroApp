@@ -5,14 +5,14 @@ export class MessageService {
 
   constructor() { }
 
-  message:string[] = [];
+  messages:string[] = [];
 
   add(message:string): void {
-    this.message.push(message);
+    this.messages.push(message);
   }
 
   clear(): void {
-    this.message = [];
+    this.messages = [];
   }
 
 }
