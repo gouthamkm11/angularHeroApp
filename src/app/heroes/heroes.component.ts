@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { IHero } from '../models/hero';
-import { HEROES } from '../dataSource/mockHeros';
+import { HeroService } from '../hero.service';
+
 
 @Component({
   selector: 'app-heroes',
@@ -10,24 +11,20 @@ import { HEROES } from '../dataSource/mockHeros';
 
 export class HeroesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private heroService:HeroService) { }
 
   // All the component initialization logic goes here
   ngOnInit() {
+    this.heroes = this.heroService.getHeroes();
   }
 
   //Component Variable
-  heroes = HEROES;
-  selectedHero: Hero;
- 
- 
-  constructor() { }
- 
-  ngOnInit() {
-  }
+  heroes:IHero[];
+  selectedHero: IHero;
+
  
   //Component Method - Click Event
-  onSelect(hero: Hero): void {
+  onSelect(hero:IHero): void{
     this.selectedHero = hero;
   }
 }

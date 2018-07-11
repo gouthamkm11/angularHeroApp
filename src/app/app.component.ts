@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { IHero } from './models/hero';
+import { IButton } from '../../node_modules/@types/selenium-webdriver';
 
 @Component({
   selector: 'app-root',
